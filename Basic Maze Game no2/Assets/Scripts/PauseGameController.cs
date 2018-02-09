@@ -1,32 +1,36 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PauseGameController : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    public GameObject canvas;
+    public GameObject player;
+
+    void Start () {
+
+    }
 	
-	// Update is called once per frame
 	void Update () {
-		
-	}
+        if (Input.GetKey(KeyCode.P))
+        {
+            Pause();
+        }
+    }
 
     public void Pause()
     {
-        // speed = 0;
-        // canvas ticked
-        // enabled mouse pointer
-        // 
+        Cursor.visible = true; // enabled mouse pointer
+        canvas.SetActive(true);
+        player.SetActive(false);
     }
 
     public void UnPause()
     {
-        // disable mouse pointer
-        // speed set to the original number
-        // canvas un-ticked
+        Cursor.visible = false; // disable mouse pointer
+        canvas.SetActive(false);
+        player.SetActive(true);
     }
 
 }
